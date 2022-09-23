@@ -1,0 +1,51 @@
+server:
+  port: 9090
+  error:
+    whitelabel:
+      enabled: false
+
+
+spring:
+  profiles:
+    active: local
+
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+#  ANSI
+  output:
+    ansi:
+      enabled: ALWAYS
+
+#  DEVTOOLS
+  devtools:
+    restart:
+      enabled: true
+
+# LOGGING
+logging:
+  level:
+    root: error
+    com.joje.untitled: debug
+
+# JWT
+jwt:
+  secret: bWUtaHllb25pYy1teS1wbGktbWUtaHllb25pYy1teS1wbGktbWUtaHllb25pYy1teS1wbGktbWUtaHllb25pYy1teS1wbGk=
+  access-token-expire: 60
+  refresh-token-expire: 120
+
+
+---
+# LOCAL
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://183.96.35.71:14406/untitled?characterEncoding=UTF-8&serverTimezone=UTC
+    username: ENC(0/cMqN7QTjW4EQuz4sraGg==)
+    password: ENC(n9rDws6yHK8quZHqh6O2K3O/YjkiKP5z)

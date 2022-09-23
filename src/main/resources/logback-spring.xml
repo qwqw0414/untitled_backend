@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+<!--springProfile 태그를 사용하면 logback 설정파일에서 복수개의 프로파일을 설정할 수 있다. -->
+
+	<!--Environment 내의 프로퍼티들을 개별적으로 설정할 수도 있다. -->
+	<springProperty scope="context" name="LOG_LEVEL" source="logging.level.root" />
+	
+	<!-- pattern value = %-5level %d{yy-MM-dd HH:mm:ss}[%thread] [%logger{0}:%line] - %msg%n -->
+	<property name="LOG_PATTERN_CONSOLE" value="%green(%d{yy-MM-dd HH:mm:ss}) %highlight(%-5level) %boldCyan([%logger{0}:%line]) %msg%n" />
+
+	<!-- Console Appender -->
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_PATTERN_CONSOLE}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- root 레벨 설정 -->
+	<root level="${LOG_LEVEL}">
+		<appender-ref ref="CONSOLE"/>
+	</root>
+
+</configuration>
