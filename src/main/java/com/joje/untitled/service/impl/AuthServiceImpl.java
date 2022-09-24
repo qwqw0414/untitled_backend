@@ -59,7 +59,7 @@ public class AuthServiceImpl implements AuthService {
     public UserDto signup(SignupDto param) {
 
         if(userRepository.countByUserId(param.getUserId()) > 0)
-            throw new RuntimeException("이미 가입된 유저입니다. ");
+            throw new RuntimeException("이미 가입된 유저");
 
         List<RoleEntity> roles = new ArrayList<>();
         roles.add(new RoleEntity(RoleType.ROLE_USER));
@@ -91,7 +91,7 @@ public class AuthServiceImpl implements AuthService {
      */
     @Override
     @Transactional
-    public TokenDto signon(SignonDto param) {
+    public TokenDto signin(SignonDto param) {
 
         String accessToken = "";
         String refreshToken = "";
@@ -117,7 +117,7 @@ public class AuthServiceImpl implements AuthService {
 //        토큰 정보 DB에 저장
         tokenRepository.save(token);
 
-        return new TokenDto(accessToken, refreshToken);
+        return new TokenDto(accessToken, refreshToken, 0L);
     }
 
     @Override
@@ -173,7 +173,7 @@ public class AuthServiceImpl implements AuthService {
 
         tokenRepository.save(updatedToken);
 
-        return new TokenDto(accessToken, refreshToken);
+        return new TokenDto(accessToken, refreshToken, 0L);
     }
 
 }

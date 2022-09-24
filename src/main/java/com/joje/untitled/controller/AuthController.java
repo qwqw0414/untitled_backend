@@ -29,7 +29,7 @@ public class AuthController {
     @GetMapping("/duple/{userId}")
     public ResponseEntity<?> idDuplicateCheck(@PathVariable("userId") String userId) throws Exception {
         ResultVo resultVo = new ResultVo();
-        resultVo.put("isVaild", authService.idDuplicateCheck(userId));
+        resultVo.put("isValid", authService.idDuplicateCheck(userId));
         return new ResponseEntity<>(resultVo, HttpStatus.OK);
     }
 
@@ -52,7 +52,7 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> signin(@RequestBody SignonDto param) throws Exception {
 
-        TokenDto tokenResponseDto = authService.signon(param);
+        TokenDto tokenResponseDto = authService.signin(param);
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JwtTokenProvider.AUTHORIZATION_HEADER, "Bearer " + tokenResponseDto.getAccessToken());

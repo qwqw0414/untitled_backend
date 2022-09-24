@@ -15,7 +15,7 @@ public interface AuthService {
 
     UserDto getUser(String userId);
 
-    TokenDto signon(SignonDto param);
+    TokenDto signin(SignonDto param);
 
     @Transactional
     void signout(TokenDto param);
