@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/daisy/auth")
+@RequestMapping("/untitled/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -49,8 +49,8 @@ public class AuthController {
     /**
      * 로그인
      */
-    @PostMapping("/signon")
-    public ResponseEntity<?> signon(@RequestBody SignonDto param) throws Exception {
+    @PostMapping("/signin")
+    public ResponseEntity<?> signin(@RequestBody SignonDto param) throws Exception {
 
         TokenDto tokenResponseDto = authService.signon(param);
 

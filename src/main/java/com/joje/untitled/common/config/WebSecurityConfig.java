@@ -76,9 +76,9 @@ public class WebSecurityConfig {
 //                URL 패턴 별 권한 인증 등록
                 .and()
                 .authorizeRequests()
-                .antMatchers("/daisy/auth/**").permitAll()
-                .antMatchers("/daisy/manager/**").hasRole("MANAGER")
-                .antMatchers("/daisy/admin/**").hasRole("ADMIN")
+                .antMatchers("/untitled/auth/**").permitAll()
+                .antMatchers("/untitled/manager/**").hasRole("MANAGER")
+                .antMatchers("/untitled/admin/**").hasRole("ADMIN")
 //                이 외 요청을 USER 권한이 필요
                 .anyRequest().hasRole("USER")
 
